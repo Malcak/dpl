@@ -38,8 +38,8 @@ if [[ "$has_any_error" == "true" ]]; then
     exit 1
 fi
 
-if [[ ! -d "/var/log/backup_script/" ]]; then
-    sudo mkdir -p "/var/log/backup_script/"
+if [[ ! -d "/tmp/log/backup_script/" ]]; then
+    mkdir -p "/tmp/log/backup_script/"
 fi
 
-sudo rsync -ahruvz --mkpath --delete --log-file-format="%o %i %f%L" --log-file="/var/log/backup_script/report.log" $1 $2
+rsync -ahruvz --mkpath --delete --log-file-format="%o %i %f%L" --log-file="/tmp/log/backup_script/report.log" $1 $2
